@@ -10,6 +10,9 @@ Build a voting application where you will initialize a set of candidates who wil
 ```
 npm install --global --production windows-build-tools
 ```
+## Source Code
+[Sample Contract](https://github.com/kingsland-innovation-center/voting-contract/blob/master/voting.sol)
+
 ## Create the Smart Contract
 1.	Create a new folder named “Voting System”.
 a.	Open your command prompt and go in the folder. We will now refer to this as your workspace.
@@ -35,9 +38,6 @@ e.	Implement a `voteForCandidate(string)` function, which votes for a given cand
 f.	Implement a `totalVotesFor(string)` function, which returns the count of votes for a candidate.
 g.	To be able to compare strings we can first hash them with `keccak256()` and compare their hashes. 
 
-Sample contract source code is available here: 
-https://github.com/kingsland-innovation-center/voting-contract/blob/master/voting.sol
- 
 5.	In the migrations folder create file 2_deploy_contracts.js and add the deployment code which will deploy the smart contract.
  
 ## Setup the Development Environment
@@ -70,6 +70,7 @@ $ node
 ```
 Tip: If the console gets messy due to long outputs, press `CTRL + L` to clear the console.
 
+
 3.	Retrieve and store all our available accounts. We can do that with `web3.eth.getAccounts()`. This returns a promise, so what we are going to do is to store the data in an `accounts` array for easy access.
 ```bash
 > web3.eth.getAccounts().then(web3Accounts => {accounts = web3Accounts})
@@ -88,7 +89,7 @@ Tip: If the console gets messy due to long outputs, press `CTRL + L` to clear th
 ```bash
 > compiledCode = solc.compile(code)
 ```
- 
+
 If you run into `solc` compiler issues, copy the code below (otherwise, disregard and continue):
 ```bash
 > var solcInput = {
@@ -146,7 +147,6 @@ Notice that we first pass the `ABI definition` then we pass an object where we s
 > VotingContract.deploy({data: byteCode}).send({from: accounts[0], gas: 4700000}).then(instance => {contractInstance = instance}
 > contractInstance
 ```
-  
 ## Interact with the Contract
 1.	Interact with the deployed contract starting with adding candidates (Tristan and Rave) and sending the transactions from a different account (Account 1). 
 
@@ -183,7 +183,6 @@ Promise { <pending> }
 Promise { <pending> }
 > 2
 ```
- 
 Check our balances again to make sure that this reading didn’t take any ETH from us.
 ```bash
 > balances = accounts.map(account => web3.eth.getBalance(account))
