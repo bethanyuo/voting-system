@@ -15,7 +15,7 @@ npm install --global --production windows-build-tools
 
 ## Create the Smart Contract
 1.	Create a new folder named “Voting System”.
-a.	Open your command prompt and go in the folder. We will now refer to this as your workspace.
+*	Open your command prompt and go in the folder. We will now refer to this as your workspace.
 
 2.	In your workspace, initialize a truffle and node project:
 ```bash
